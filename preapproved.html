@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../finance.css">
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+
+<div class="container mt-3">
+  <h2>GET PRE-APPROVED</h2>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="#step1">Step One</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#step2">Step Two</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#step3">Step three</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#step4">Step four</a>
+      </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="step1" class="container tab-pane active"><br>
+      <h3>YOUR INFORMATION</h3>
+      <div class="container">
+        <form action="" id="form-signup" name="formDK">
+          <div class="form-group">
+            <label for="">First name</label>
+            <input type="text" class="form-control">
+        </div> <br>
+
+        <div class="container">
+          <form action="" id="form-signup" name="formDK">
+            <div class="form-group">
+              <label for="">Last name</label>
+              <input type="text" class="form-control">
+          </div> <br>
+
+          <div class="container">
+            <form action="" id="form-signup" name="formDK">
+              <div class="form-group">
+                <label for="">Middel Initial</label>
+                <input type="text" class="form-control">
+            </div> <br>
+            <div>
+                <label for="">Email</label>
+                <input type="email" name="email" id="email" required value="xxx@xxx.com" />
+            </div>
+            
+            <div>
+                <input type="submit" value="Next">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+        //lap trinh cho su kien bam nut [submit] cua form dang ky
+        document.getElementById("form-signup").onsubmit = function () {
+
+            //1. kiem tra o nhap email co dung chuan ko?
+            let email = document.getElementById("email").value.trim().toLowerCase();
+
+            
+            //1a. bieu thuc qui tac (regular exp kiem tra email)
+            let r = /([a-z0-9_]+)@([a-z0-9]+)\.([a-z]{2,4})+/; 
+
+            //1b. kiem tra du lieu trong nhap email co khop voi bieu thuc r?
+            if(r.test(email)==false) {
+                alert("Email ko hop le. Vui long nhap lai !!!");
+                document.getElementById("email").focus();
+                return false;
+            }
+            //ket thuc kiem tra o nhap email co dung chuan ko?
+
+            //goi ham hien thi thong tin nhap
+            fn_show();
+
+            return false;
+       }
+
+
+       //lap trinh cho chuc nang hien thi cac noi dung nhap lieu
+       function fn_show() {
+            //tao 1 mang a[] chua cac noi dung nhap lieu trong form dang ky
+            let a=[];
+
+            //lay cac noi dung trong form dua vo mang a[]
+            a.push(`email = ${formDK.email.value}`);
+
+            //hien thi thong tin cua mang a[] len hop thoai alert()
+            alert(a.join('\n'));
+
+       }
+
+
+    </script>
+    </div>
+    <div id="step2" class="container tab-pane fade"><br>
+      <h3>Step 02</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    
+    <div id="step3" class="container tab-pane fade"><br>
+      <h3>Step 03</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+    <div id="step4" class="container tab-pane fade"><br>
+        <h3>Step 04</h3>
+        <p>check.</p>
+      </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $(".nav-tabs a").click(function(){
+    $(this).tab('show');
+  });
+});
+</script>
+
+<aside>
+    <section class="popular-recipies row">
+      <p >
+        Complete this easy four-step application, and we will contact you with your customized financing options. We even cater to those with less-than-perfect credit. Simply fill out our Credit Application form below.
+
+      </p>
+      <hr>
+     
+    </section>
+    <section class="contact-details">
+      
+    </section>
+</aside>
+
+</body>
+</html>
